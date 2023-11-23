@@ -1,6 +1,5 @@
 const SQLConnection = require("../db/connection");
 const {DataTypes} = require("sequelize");
-const Author = require('../author/authormodel');
 
 const Book = SQLConnection.define("Book", {
     title: {

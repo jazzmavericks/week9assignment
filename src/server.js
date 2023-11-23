@@ -4,6 +4,8 @@ const app = express();
 const SQLconnection = require("./db/connection");
 const userRouter = require("./routes/userroutes");
 const User = require("./models/user");
+const Book = require("./models/bookmodel");
+const bookRouter = require("./routes/bookroutes");
 
 const port = process.env.PORT || 5002
 
@@ -11,8 +13,11 @@ app.use(express.json());
 
 app.use(userRouter);
 
+app.use(bookRouter);
+
 function syncTables() {
     User.sync({alter:true})
+    Book.sync({alter:true})
 };
 
 app.get("/health", (req,res) => {
