@@ -6,8 +6,11 @@ const userRouter = require("./routes/userroutes");
 const User = require("./models/user");
 const Book = require("./models/bookmodel");
 const bookRouter = require("./routes/bookroutes");
+const cors = require("cors");
 
 const port = process.env.PORT || 5002
+
+app.use(cors());
 
 app.use(express.json());
 
